@@ -1,0 +1,132 @@
+/**
+ * Pure Vista · Design Tokens
+ * 用法：@import 或在 :root 中引用
+ * 版本：v1.0
+ */
+
+:root {
+  /* ── Colors: Primary ── */
+  --pv-navy-950: #020617;
+  --pv-navy-900: #0F172A;
+  --pv-navy-800: #1E293B;
+  --pv-navy-700: #334155;
+  --pv-navy-600: #475569;
+  --pv-navy-500: #64748B;
+  --pv-navy-400: #94A3B8;
+  --pv-navy-300: #CBD5E1;
+  --pv-navy-200: #E2E8F0;
+  --pv-navy-100: #F1F5F9;
+  --pv-navy-50:  #F8FAFC;
+
+  --pv-teal-900: #134E4A;
+  --pv-teal-800: #115E59;
+  --pv-teal-700: #0F766E;
+  --pv-teal-600: #0D9488;
+  --pv-teal-500: #14B8A6;
+  --pv-teal-400: #2DD4BF;
+  --pv-teal-300: #5EEAD4;
+  --pv-teal-200: #99F6E4;
+  --pv-teal-100: #CCFBF1;
+  --pv-teal-50:  #F0FDFA;
+
+  --pv-white: #FFFFFF;
+
+  /* ── Colors: Semantic ── */
+  --pv-color-primary:     var(--pv-navy-800);
+  --pv-color-accent:      var(--pv-teal-500);
+  --pv-color-accent-hover: var(--pv-teal-600);
+  --pv-color-accent-light: var(--pv-teal-200);
+  --pv-color-bg:          var(--pv-white);
+  --pv-color-bg-muted:    var(--pv-navy-100);
+  --pv-color-text:        var(--pv-navy-800);
+  --pv-color-text-muted:  var(--pv-navy-500);
+  --pv-color-text-subtle: var(--pv-navy-400);
+  --pv-color-border:      var(--pv-navy-200);
+  --pv-color-border-hover: var(--pv-navy-300);
+
+  --pv-color-success: #22C55E;
+  --pv-color-success-bg: #DCFCE7;
+  --pv-color-success-text: #166534;
+  --pv-color-warning: #F59E0B;
+  --pv-color-warning-bg: #FEF3C7;
+  --pv-color-warning-text: #92400E;
+  --pv-color-error: #EF4444;
+  --pv-color-error-bg: #FEE2E2;
+  --pv-color-error-text: #991B1B;
+  --pv-color-info: #3B82F6;
+
+  /* ── Typography ── */
+  --pv-font-display: 'Plus Jakarta Sans', 'MiSans', system-ui, sans-serif;
+  --pv-font-body: 'Inter', 'MiSans', system-ui, sans-serif;
+  --pv-font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
+
+  --pv-text-display-xl: 3rem;
+  --pv-text-display-lg: 2.25rem;
+  --pv-text-h1: 1.875rem;
+  --pv-text-h2: 1.5rem;
+  --pv-text-h3: 1.25rem;
+  --pv-text-body-lg: 1.125rem;
+  --pv-text-body: 1rem;
+  --pv-text-body-sm: 0.875rem;
+  --pv-text-caption: 0.75rem;
+  --pv-text-overline: 0.6875rem;
+
+  --pv-leading-tight: 1.1;
+  --pv-leading-snug: 1.25;
+  --pv-leading-normal: 1.5;
+  --pv-leading-relaxed: 1.6;
+
+  --pv-tracking-tight: -0.02em;
+  --pv-tracking-normal: 0;
+  --pv-tracking-wide: 0.08em;
+  --pv-tracking-wider: 0.1em;
+
+  /* ── Spacing ── */
+  --pv-space-1: 0.25rem;
+  --pv-space-2: 0.5rem;
+  --pv-space-3: 0.75rem;
+  --pv-space-4: 1rem;
+  --pv-space-5: 1.25rem;
+  --pv-space-6: 1.5rem;
+  --pv-space-8: 2rem;
+  --pv-space-10: 2.5rem;
+  --pv-space-12: 3rem;
+  --pv-space-16: 4rem;
+  --pv-space-20: 5rem;
+  --pv-space-24: 6rem;
+
+  /* ── Border Radius ── */
+  --pv-radius-sm: 4px;
+  --pv-radius-md: 8px;
+  --pv-radius-lg: 12px;
+  --pv-radius-xl: 16px;
+  --pv-radius-2xl: 24px;
+  --pv-radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --pv-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --pv-shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --pv-shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.12);
+  --pv-shadow-xl: 0 16px 48px rgba(15, 23, 42, 0.16);
+  --pv-shadow-focus: 0 0 0 3px rgba(20, 184, 166, 0.15);
+
+  /* ── Layout ── */
+  --pv-max-width: 1200px;
+  --pv-max-width-dashboard: 1440px;
+
+  /* ── Transitions ── */
+  --pv-transition-fast: 150ms ease;
+  --pv-transition-normal: 250ms ease;
+}
+
+[data-theme="dark"] {
+  --pv-color-bg: var(--pv-navy-900);
+  --pv-color-bg-muted: var(--pv-navy-800);
+  --pv-color-text: var(--pv-navy-100);
+  --pv-color-text-muted: var(--pv-navy-400);
+  --pv-color-text-subtle: var(--pv-navy-500);
+  --pv-color-border: var(--pv-navy-700);
+  --pv-color-border-hover: var(--pv-navy-600);
+  --pv-color-accent: var(--pv-teal-400);
+  --pv-color-accent-hover: var(--pv-teal-300);
+}

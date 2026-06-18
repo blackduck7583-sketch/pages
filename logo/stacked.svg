@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" fill="none" role="img" aria-label="Pure Vista">
+  <g transform="translate(60, 8)">
+    <path d="M4 40 L20 8 L36 40" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="0" y1="42" x2="40" y2="42" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="78" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="0.08em" fill="#1E293B">Pure Vista</text>
+  <text x="80" y="100" text-anchor="middle" font-family="'MiSans', system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="0.2em" fill="#64748B">o���</text>
+</svg>

@@ -1,0 +1,158 @@
+{
+  "brand": {
+    "name": "Pure Vista",
+    "nameCn": "景纯设计",
+    "slogan": "Design, delivered. Pure and simple.",
+    "sloganCn": "设计交付，纯粹简单。",
+    "version": "1.0.0"
+  },
+  "color": {
+    "primary": {
+      "navy": {
+        "50": "#F8FAFC",
+        "100": "#F1F5F9",
+        "200": "#E2E8F0",
+        "300": "#CBD5E1",
+        "400": "#94A3B8",
+        "500": "#64748B",
+        "600": "#475569",
+        "700": "#334155",
+        "800": "#1E293B",
+        "900": "#0F172A",
+        "950": "#020617"
+      },
+      "teal": {
+        "50": "#F0FDFA",
+        "100": "#CCFBF1",
+        "200": "#99F6E4",
+        "300": "#5EEAD4",
+        "400": "#2DD4BF",
+        "500": "#14B8A6",
+        "600": "#0D9488",
+        "700": "#0F766E",
+        "800": "#115E59",
+        "900": "#134E4A"
+      },
+      "white": "#FFFFFF"
+    },
+    "semantic": {
+      "success": "#22C55E",
+      "successBg": "#DCFCE7",
+      "successText": "#166534",
+      "warning": "#F59E0B",
+      "warningBg": "#FEF3C7",
+      "warningText": "#92400E",
+      "error": "#EF4444",
+      "errorBg": "#FEE2E2",
+      "errorText": "#991B1B",
+      "info": "#3B82F6"
+    },
+    "kanban": {
+      "queued": "#F59E0B",
+      "inProgress": "#14B8A6",
+      "delivered": "#22C55E",
+      "returned": "#EF4444"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": "Plus Jakarta Sans, MiSans, system-ui, sans-serif",
+      "body": "Inter, MiSans, system-ui, sans-serif",
+      "mono": "Geist Mono, JetBrains Mono, monospace"
+    },
+    "fontSize": {
+      "displayXl": 48,
+      "displayLg": 36,
+      "h1": 30,
+      "h2": 24,
+      "h3": 20,
+      "bodyLg": 18,
+      "body": 16,
+      "bodySm": 14,
+      "caption": 12,
+      "overline": 11
+    },
+    "fontWeight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "lineHeight": {
+      "tight": 1.1,
+      "snug": 1.25,
+      "normal": 1.5,
+      "relaxed": 1.6
+    },
+    "letterSpacing": {
+      "tight": "-0.02em",
+      "normal": "0",
+      "wide": "0.08em",
+      "wider": "0.1em"
+    }
+  },
+  "spacing": {
+    "1": 4,
+    "2": 8,
+    "3": 12,
+    "4": 16,
+    "5": 20,
+    "6": 24,
+    "8": 32,
+    "10": 40,
+    "12": 48,
+    "16": 64,
+    "20": 80,
+    "24": 96
+  },
+  "borderRadius": {
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "2xl": 24,
+    "full": 9999
+  },
+  "shadow": {
+    "sm": "0 1px 2px rgba(15, 23, 42, 0.05)",
+    "md": "0 4px 12px rgba(15, 23, 42, 0.08)",
+    "lg": "0 8px 24px rgba(15, 23, 42, 0.12)",
+    "xl": "0 16px 48px rgba(15, 23, 42, 0.16)",
+    "focus": "0 0 0 3px rgba(20, 184, 166, 0.15)"
+  },
+  "layout": {
+    "maxWidth": 1200,
+    "maxWidthDashboard": 1440,
+    "gridColumns": 12,
+    "gridGutter": 24
+  },
+  "component": {
+    "button": {
+      "height": { "sm": 36, "md": 40, "lg": 48 },
+      "paddingX": 24,
+      "borderRadius": 8
+    },
+    "input": {
+      "height": 40,
+      "borderRadius": 8,
+      "borderWidth": 1
+    },
+    "card": {
+      "padding": 24,
+      "borderRadius": 12
+    },
+    "badge": {
+      "height": 24,
+      "paddingX": 10,
+      "paddingY": 4,
+      "borderRadius": 4,
+      "fontSize": 12
+    }
+  },
+  "icon": {
+    "library": "Lucide Icons",
+    "style": "outline",
+    "strokeWidth": 1.5,
+    "sizes": [16, 20, 24]
+  }
+}

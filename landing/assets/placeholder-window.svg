@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#F1F5F9"/>
+  <rect x="80" y="60" width="280" height="480" fill="#CBD5E1" opacity="0.5"/>
+  <rect x="100" y="120" width="240" height="360" rx="2" fill="#14B8A6" opacity="0.25"/>
+  <text x="500" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="600" fill="#64748B">q�4 / ��4</text>
+  <text x="500" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#94A3B8">��b��</text>
+</svg>

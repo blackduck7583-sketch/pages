@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure Vista · 品牌资产展示板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../design-tokens.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--pv-font-body);
+    color: var(--pv-color-text);
+    background: var(--pv-navy-50);
+    line-height: var(--pv-leading-relaxed);
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 1080px; margin: 0 auto; padding: 48px 24px 96px; }
+  .hero {
+    background: linear-gradient(135deg, var(--pv-navy-900) 0%, var(--pv-navy-800) 100%);
+    border-radius: var(--pv-radius-2xl);
+    padding: 56px 48px;
+    color: #fff;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: var(--pv-teal-500);
+    opacity: 0.1;
+  }
+  .hero__eyebrow {
+    font-size: var(--pv-text-overline);
+    font-weight: 600;
+    letter-spacing: var(--pv-tracking-wider);
+    text-transform: uppercase;
+    color: var(--pv-teal-400);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: var(--pv-font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: var(--pv-tracking-tight);
+    margin-bottom: 8px;
+  }
+  .hero p { color: var(--pv-navy-300); max-width: 520px; }
+  section { margin-bottom: 48px; }
+  .section-title {
+    font-family: var(--pv-font-display);
+    font-size: var(--pv-text-h2);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-desc { color: var(--pv-color-text-muted); font-size: var(--pv-text-body-sm); margin-bottom: 24px; }
+  .card {
+    background: #fff;
+    border: 1px solid var(--pv-color-border);
+    border-radius: var(--pv-radius-lg);
+    padding: 32px;
+    box-shadow: var(--pv-shadow-sm);
+  }
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .logo-cell {
+    border-radius: var(--pv-radius-md);
+    padding: 32px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    border: 1px solid var(--pv-color-border);
+  }
+  .logo-cell img, .logo-cell svg { max-width: 100%; height: auto; max-height: 48px; }
+  .logo-cell--dark { background: var(--pv-navy-800); border-color: var(--pv-navy-700); }
+  .logo-cell--mist { background: var(--pv-navy-100); }
+  .logo-cell--navy { background: var(--pv-navy-900); border-color: var(--pv-navy-800); }
+  .logo-cell__label {
+    font-size: 11px;
+    color: var(--pv-color-text-subtle);
+    text-align: center;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+  .logo-wrap { display: flex; flex-direction: column; align-items: center; }
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  .swatch {
+    border-radius: var(--pv-radius-md);
+    overflow: hidden;
+    border: 1px solid var(--pv-color-border);
+  }
+  .swatch__color { height: 72px; }
+  .swatch__info { padding: 10px 12px; background: #fff; }
+  .swatch__name { font-size: 12px; font-weight: 600; }
+  .swatch__hex { font-size: 11px; color: var(--pv-color-text-muted); font-family: var(--pv-font-mono); margin-top: 2px; }
+  .type-specimen { margin-bottom: 32px; }
+  .type-specimen__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pv-color-text-subtle);
+    margin-bottom: 8px;
+  }
+  .type-display-xl { font-family: var(--pv-font-display); font-size: 48px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .type-display-lg { font-family: var(--pv-font-display); font-size: 36px; font-weight: 700; line-height: 1.15; }
+  .type-h1 { font-family: var(--pv-font-display); font-size: 30px; font-weight: 600; }
+  .type-body { font-size: 16px; font-weight: 400; color: var(--pv-color-text-muted); max-width: 640px; }
+  .type-wordmark { font-family: var(--pv-font-display); font-size: 22px; font-weight: 600; letter-spacing: 0.08em; }
+  .type-cn { font-size: 22px; font-weight: 600; letter-spacing: 0.12em; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--pv-font-body); font-size: 14px; font-weight: 600;
+    letter-spacing: 0.02em; height: 44px; padding: 0 22px;
+    border-radius: var(--pv-radius-md); border: 1px solid transparent;
+    cursor: default;
+  }
+  .btn--primary { background: var(--pv-teal-500); color: #fff; }
+  .btn--secondary { background: #fff; color: var(--pv-navy-800); border-color: var(--pv-navy-200); }
+  .btn--ghost { background: transparent; color: var(--pv-navy-500); }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .badge {
+    display: inline-flex; align-items: center; height: 24px; padding: 0 10px;
+    font-size: 12px; font-weight: 500; border-radius: 4px;
+  }
+  .badge--default { background: var(--pv-navy-100); color: var(--pv-navy-500); }
+  .badge--active { background: var(--pv-teal-100); color: var(--pv-teal-700); }
+  .badge--success { background: var(--pv-color-success-bg); color: var(--pv-color-success-text); }
+  .badge--warning { background: var(--pv-color-warning-bg); color: var(--pv-color-warning-text); }
+  .icon-row { display: flex; gap: 24px; align-items: center; color: var(--pv-navy-500); }
+  .icon-row svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .icon-row .accent { color: var(--pv-teal-500); }
+  .ratio-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; margin-top: 16px; }
+  .ratio-bar span:nth-child(1) { flex: 60; background: var(--pv-navy-800); }
+  .ratio-bar span:nth-child(2) { flex: 30; background: var(--pv-navy-100); }
+  .ratio-bar span:nth-child(3) { flex: 10; background: var(--pv-teal-500); }
+  .ratio-legend { display: flex; gap: 24px; margin-top: 12px; font-size: 12px; color: var(--pv-color-text-muted); }
+  .ratio-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+  .og-preview { border-radius: var(--pv-radius-lg); overflow: hidden; border: 1px solid var(--pv-color-border); }
+  .og-preview img { width: 100%; display: block; }
+  footer { text-align: center; font-size: 12px; color: var(--pv-color-text-subtle); padding-top: 24px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <p class="hero__eyebrow">Brand Identity System v1.0</p>
+    <h1>Pure Vista</h1>
+    <p>景纯设计 · 以纯粹的方式，呈现清晰的设计视野。极简 SaaS 气质，对标 Linear / Vercel 级专业感。</p>
+  </header>
+
+  <section>
+    <h2 class="section-title">Logo 系统</h2>
+    <p class="section-desc">Mark = 开放视野框（Teal）+ 地平线（Navy），象征清晰全景与稳固交付。</p>
+    <div class="card">
+      <div class="logo-grid">
+        <div class="logo-wrap">
+          <div class="logo-cell"><img src="../logo/primary-horizontal.svg" alt="Primary"></div>
+          <span class="logo-cell__label">Primary Horizontal</span>
+        </div>
+        <div class="logo-wrap">
+          <div class="logo-cell logo-cell--mist"><img src="../logo/primary-horizontal-cn.svg" alt="CN"></div>
+          <span class="logo-cell__label">中英双语版</span>
+        </div>
+        <div class="logo-wrap">
+          <div class="logo-cell logo-cell--dark"><img src="../logo/white.svg" alt="White"></div>
+          <span class="logo-cell__label">White on Dark</span>
+        </div>
+        <div class="logo-wrap">
+          <div class="logo-cell"><img src="../logo/stacked.svg" alt="Stacked" style="max-height:100px"></div>
+          <span class="logo-cell__label">Stacked 竖版</span>
+        </div>
+        <div class="logo-wrap">
+          <div class="logo-cell logo-cell--mist"><img src="../logo/icon-transparent.svg" alt="Mark" style="max-height:40px"></div>
+          <span class="logo-cell__label">Mark Only</span>
+        </div>
+        <div class="logo-wrap">
+          <div class="logo-cell logo-cell--navy"><img src="../logo/icon.svg" alt="Icon" style="max-height:48px;border-radius:12px"></div>
+          <span class="logo-cell__label">App Icon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">色彩系统</h2>
+    <p class="section-desc">Deep Navy 结构 + Mist 留白 + Teal 点缀。使用比例 60 : 30 : 10。</p>
+    <div class="card">
+      <div class="color-grid">
+        <div class="swatch"><div class="swatch__color" style="background:#1E293B"></div><div class="swatch__info"><div class="swatch__name">Deep Navy</div><div class="swatch__hex">#1E293B</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#64748B"></div><div class="swatch__info"><div class="swatch__name">Slate</div><div class="swatch__hex">#64748B</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#F1F5F9"></div><div class="swatch__info"><div class="swatch__name">Mist</div><div class="swatch__hex">#F1F5F9</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#FFFFFF;border-bottom:1px solid #E2E8F0"></div><div class="swatch__info"><div class="swatch__name">Pure White</div><div class="swatch__hex">#FFFFFF</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#14B8A6"></div><div class="swatch__info"><div class="swatch__name">Accent Teal</div><div class="swatch__hex">#14B8A6</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#99F6E4"></div><div class="swatch__info"><div class="swatch__name">Accent Light</div><div class="swatch__hex">#99F6E4</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#22C55E"></div><div class="swatch__info"><div class="swatch__name">Success</div><div class="swatch__hex">#22C55E</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#F59E0B"></div><div class="swatch__info"><div class="swatch__name">Warning</div><div class="swatch__hex">#F59E0B</div></div></div>
+      </div>
+      <div class="ratio-bar"><span></span><span></span><span></span></div>
+      <div class="ratio-legend">
+        <span><i style="background:#1E293B"></i>Navy + Slate 60%</span>
+        <span><i style="background:#F1F5F9"></i>Mist + White 30%</span>
+        <span><i style="background:#14B8A6"></i>Teal 10%</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">字体系统</h2>
+    <p class="section-desc">Plus Jakarta Sans（Display）+ Inter（Body）+ MiSans（中文）</p>
+    <div class="card">
+      <div class="type-specimen">
+        <div class="type-specimen__label">Display XL · 48px / 800</div>
+        <div class="type-display-xl">设计交付，纯粹简单。</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-specimen__label">Display LG · 36px / 700</div>
+        <div class="type-display-lg">Productized Design Subscription</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-specimen__label">Heading 1 · 30px / 600</div>
+        <div class="type-h1">按月订阅，不开会，快交付</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-specimen__label">Body · 16px / 400</div>
+        <div class="type-body">为跨境电商及高频视觉需求客户提供产品化、订阅制、异步交付的设计供给服务。提交需求 → 我们设计 → 你预览确认 → 一键交付。</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-specimen__label">Wordmark · letter-spacing 0.08em</div>
+        <div class="type-wordmark">Pure Vista</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-specimen__label">中文品牌名 · letter-spacing 0.12em</div>
+        <div class="type-cn">景纯设计</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">UI 组件</h2>
+    <p class="section-desc">按钮、Badge、图标风格预览</p>
+    <div class="card">
+      <div class="type-specimen__label">Buttons</div>
+      <div class="btn-row">
+        <span class="btn btn--primary">开始 7 天免费试用</span>
+        <span class="btn btn--secondary">预约沟通</span>
+        <span class="btn btn--ghost">了解更多</span>
+      </div>
+      <div class="type-specimen__label" style="margin-top:24px">Badges</div>
+      <div class="badge-row">
+        <span class="badge badge--default">排队中</span>
+        <span class="badge badge--active">进行中</span>
+        <span class="badge badge--success">已交付</span>
+        <span class="badge badge--warning">待处理</span>
+      </div>
+      <div class="type-specimen__label" style="margin-top:24px">Icons · Lucide Outline 1.5px</div>
+      <div class="icon-row">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4Z"/></svg>
+        <svg class="accent" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">OG 分享图</h2>
+    <p class="section-desc">1200 × 630 · 用于社交媒体与链接预览</p>
+    <div class="og-preview">
+      <img src="../logo/og-image.svg" alt="OG Image">
+    </div>
+  </section>
+
+  <footer>Pure Vista · 景纯设计 · Brand Guidelines v1.0 · 2026</footer>
+</div>
+</body>
+</html>

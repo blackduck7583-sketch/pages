@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <circle cx="1050" cy="120" r="200" fill="#14B8A6" fill-opacity="0.08"/>
+  <circle cx="150" cy="520" r="160" fill="#14B8A6" fill-opacity="0.06"/>
+  <g transform="translate(120, 200)">
+    <path d="M4 80 L40 8 L76 80" stroke="#14B8A6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="0" y1="84" x2="80" y2="84" stroke="#F1F5F9" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="120" y="360" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="72" font-weight="700" letter-spacing="-0.02em" fill="#F8FAFC">Pure Vista</text>
+  <text x="120" y="420" font-family="'MiSans', system-ui, sans-serif" font-size="28" font-weight="500" letter-spacing="0.15em" fill="#94A3B8">o���</text>
+  <text x="120" y="500" font-family="'Inter', system-ui, sans-serif" font-size="26" font-weight="400" fill="#64748B">Design, delivered. Pure and simple.</text>
+</svg>
